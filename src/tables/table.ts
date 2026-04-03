@@ -61,6 +61,14 @@ export interface ITableOptions {
    */
   paginationEnabled?: boolean;
   /**
+   * Specifies whether responses to [Dynamic Matrix](https://surveyjs.io/form-library/examples/dynamic-matrix-add-new-rows/) and [Dynamic Panel](https://surveyjs.io/form-library/examples/duplicate-group-of-fields-in-form/) questions are rendered using nested tables.
+   *
+   * Default value: `true`
+   *
+   * If disabled, responses are displayed as stringified JSON objects instead of a tabular structure.
+   */
+  useNestedTables?: boolean;
+  /**
    * Specifies whether to split responses to multi-select questions (Checkboxes and Multi-Select Dropdown) into separate columns.
    *
    * When enabled, each choice is represented as an individual column. Cell values indicate whether the choice was selected or the selection order, depending on the `multiSelectColumnValueFormat` setting. Empty cells indicate that the choice was not selected.
@@ -106,6 +114,9 @@ export abstract class Table {
   ) {
     if(!this._options) {
       this._options = {};
+    }
+    if(typeof this._options.useNestedTables === "undefined") {
+      this._options.useNestedTables = true;
     }
 
     this.initialize();
