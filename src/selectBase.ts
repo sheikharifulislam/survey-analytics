@@ -366,7 +366,7 @@ export class SelectBase
   }
 
   protected isSupportSoftUpdateContent(): boolean {
-    return true;
+    return !this._hideEmptyAnswers;
   }
 
   protected softUpdateContent(): void {
@@ -406,6 +406,7 @@ export class SelectBase
       this.updateToolbar();
     }
     super.onDataChanged();
+    this.updateEmptyAnswersBtn();
   }
 
   protected onSelectionChanged(item: ItemValue): void {
