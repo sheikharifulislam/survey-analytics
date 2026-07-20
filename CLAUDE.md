@@ -92,3 +92,8 @@ The pipeline is: **a question type → a visualizer that knows how to aggregate 
 
 ### Localization
 `src/localizationManager.ts` plus `src/analytics-localization/` hold this package's own string table (independent of survey-core's localization).
+
+## Coding conventions
+
+- **Do not generate API doccomments** (`/** ... */`) for either new or existing API members.
+- If an API requires clarification for maintainers, add a regular JavaScript comment (`//` or `/* ... */`) in the implementation instead of a doccomment.
