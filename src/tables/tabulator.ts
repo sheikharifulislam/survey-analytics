@@ -151,6 +151,7 @@ export class Tabulator extends Table {
   public tabulatorTables: TabulatorFull = null;
   private tableContainer: HTMLElement = null;
   private currentDownloadType: string = "";
+  private columnMap: Map<string, IColumn> = new Map<string, IColumn>();
 
   protected supportSoftRefresh() {
     return true;
@@ -528,7 +529,10 @@ export class Tabulator extends Table {
     if(Array.isArray(this.data)) {
       const columnDefinition = columnComponent.getDefinition();
       const questionName = columnDefinition.field;
-      const column = this.columns.filter(col => col.name === questionName)[0];
+      if(this.columnMap.size === 0) {
+        this.initializeColumnMap();
+      }
+      const column = this.columnMap.get(questionName);
       if(!!column && rowComponent) {
         const dataRow = rowComponent.getData().surveyOriginalData;
         const dataCell = dataRow[questionName];
@@ -551,6 +555,12 @@ export class Tabulator extends Table {
     }
     return cellData;
   };
+
+  private initializeColumnMap(): void {
+    for(const col of this.columns) {
+      this.columnMap.set(col.name, col);
+    }
+  }
 
   private getTitleFormatter(
     cell: any,
