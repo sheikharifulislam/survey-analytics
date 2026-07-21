@@ -1,5 +1,5 @@
 {
-  "version": "2.5.34",
+  "version": "2.5.35",
   "name": "survey-analytics",
   "scripts": {
     "start": "http-server --silent",
