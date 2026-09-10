@@ -20,6 +20,8 @@ This step-by-step tutorial will help you set up a Table View for survey results 
 
 ## Link Resources
 
+### Add Scripts and Style Sheets
+
 SurveyJS Dashboard depends on other JavaScript libraries. Reference them on your page in the following order:
 
 1. Survey Core       
@@ -65,6 +67,22 @@ The following code shows how to reference these libraries:
 ```
 
 > Review the third-party components' licenses to ensure that your project complies with the terms and conditions.
+
+### Add Fonts
+
+Starting with SurveyJS v3.1.0, fonts are no longer included in SurveyJS packages. Load Open Sans separately to preserve the default appearance, unless your application already does so. If you use a custom font, load it instead. Otherwise, the browser uses a fallback font, which may affect spacing and layout.
+
+To load Open Sans from Google Fonts, add the following links to the page's `<head>`. You can also host the font files yourself.
+
+```html
+<head>
+    <!-- ... -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- ... -->
+</head>
+```
 
 ## Load Survey Results
 
@@ -194,6 +212,11 @@ document.addEventListener("DOMContentLoaded", function() {
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Open Sans font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
     <title>Table View: SurveyJS Dashboard</title>
     <meta charset="utf-8">
     <script src="https://unpkg.com/survey-core/survey.core.min.js"></script>

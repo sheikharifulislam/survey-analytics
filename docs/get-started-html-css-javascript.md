@@ -29,6 +29,8 @@ The final result is an interactive dashboard similar to the one shown below:
 
 ## Link Resources
 
+### Add Scripts and Style Sheets
+
 SurveyJS Dashboard depends on other JavaScript libraries. Reference them on your page in the following order:
 
 1. Survey Core       
@@ -57,6 +59,22 @@ The following code shows how to reference these libraries:
   <!-- SurveyJS Dashboard -->
   <link href="https://unpkg.com/survey-analytics/survey.analytics.min.css" rel="stylesheet">
   <script src="https://unpkg.com/survey-analytics/survey.analytics.min.js"></script>
+</head>
+```
+
+### Add Fonts
+
+Starting with SurveyJS v3.1.0, fonts are no longer included in SurveyJS packages. Load Open Sans separately to preserve the default appearance, unless your application already does so. If you use a custom font, load it instead. Otherwise, the browser uses a fallback font, which may affect spacing and layout.
+
+To load Open Sans from Google Fonts, add the following links to the page's `<head>`. You can also host the font files yourself.
+
+```html
+<head>
+    <!-- ... -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- ... -->
 </head>
 ```
 
@@ -186,6 +204,11 @@ const dashboard = new SurveyAnalytics.Dashboard({
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Open Sans font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
   <title>SurveyJS Dashboard</title>
   <meta charset="utf-8">
   <script src="https://unpkg.com/survey-core/survey.core.min.js"></script>
@@ -291,6 +314,11 @@ const dashboard = new SurveyAnalytics.Dashboard({
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Open Sans font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
   <title>SurveyJS Dashboard</title>
   <meta charset="utf-8">
   <script src="https://unpkg.com/survey-core/survey.core.min.js"></script>
@@ -369,6 +397,11 @@ document.addEventListener("DOMContentLoaded", function() {
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Open Sans font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
   <title>SurveyJS Dashboard</title>
   <meta charset="utf-8">
   <script src="https://unpkg.com/survey-core/survey.core.min.js"></script>

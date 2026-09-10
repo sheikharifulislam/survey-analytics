@@ -46,10 +46,38 @@ The Table View for SurveyJS Dashboard depends on the <a href="https://tabulator.
 
 ## Configure Styles
 
+### Add Themes
+
 Import the Tabulator and Table View style sheets in the component that will render the Table View:
 
 ```html
 <script setup lang="ts">
+import 'tabulator-tables/dist/css/tabulator.css';
+import 'survey-analytics/survey.analytics.tabulator.css';
+</script>
+
+<template>
+  <!-- ... -->
+</template>
+```
+
+### Add Fonts
+
+Starting with SurveyJS v3.1.0, fonts are no longer included in SurveyJS packages. Load Open Sans separately to preserve the default appearance, unless your application already does so. If you use a custom font, load it instead. Otherwise, the browser uses a fallback font, which may affect spacing and layout.
+
+To add Open Sans using [Fontsource](https://fontsource.org/docs/getting-started/install), run the following command:
+
+```sh
+npm install @fontsource/open-sans
+```
+
+The following example imports font weights 400, 600, and 700 alongside the component style sheets. You can also place the font imports in your application's entry file or root layout to load them once for all SurveyJS components.
+
+```html
+<script setup lang="ts">
+import '@fontsource/open-sans/400.css';
+import '@fontsource/open-sans/600.css';
+import '@fontsource/open-sans/700.css';
 import 'tabulator-tables/dist/css/tabulator.css';
 import 'survey-analytics/survey.analytics.tabulator.css';
 </script>
@@ -199,6 +227,9 @@ onMounted(() => {
 
 ```html
 <script setup lang="ts">
+import '@fontsource/open-sans/400.css';
+import '@fontsource/open-sans/600.css';
+import '@fontsource/open-sans/700.css';
 import 'tabulator-tables/dist/css/tabulator.css';
 import 'survey-analytics/survey.analytics.tabulator.css';
 import { Model } from 'survey-core'
